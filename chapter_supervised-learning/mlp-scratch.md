@@ -1,4 +1,4 @@
-# 多层感知机 --- 从0开始
+# 多层感知机——从零开始
 
 前面我们介绍了包括线性回归和多类逻辑回归的数个模型，它们的一个共同点是全是只含有一个输入层，一个输出层。这一节我们将介绍多层神经网络，就是包含至少一个隐含层的网络。
 
@@ -16,7 +16,7 @@ train_data, test_data = utils.load_data_fashion_mnist(batch_size)
 
 ## 多层感知机
 
-多层感知机与前面介绍的[多类逻辑回归](../chapter_crashcourse/softmax-regression-scratch.md)非常类似，主要的区别是我们在输入层和输出层之间插入了一到多个隐含层。
+多层感知机与前面介绍的[多类逻辑回归](../chapter_crashcourse/softmax-regression-scratch.md)非常类似，主要的区别是我们在输入层和输出层之间插入了一个到多个隐含层。
 
 ![](../img/multilayer-perceptron.png)
 

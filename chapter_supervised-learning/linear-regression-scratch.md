@@ -1,4 +1,4 @@
-# 线性回归 --- 从0开始
+# 线性回归——从零开始
 
 尽管强大的深度学习框架可以减少大量重复性工作，但若过于依赖它提供的便利，你就会很难深入理解深度学习是如何工作的。因此，我们的第一个教程是如何只利用ndarray和autograd来实现一个线性回归的训练。
 
@@ -49,7 +49,7 @@ y += .01 * nd.random_normal(shape=y.shape)
 print(X[0], y[0])
 ```
 
-如果有兴趣，可以使用安装包中已包括的 Python 绘图包 `matplotlib`，生成第二个特征值 (`X[:, 1]`) 和目标值 `Y` 的散点图，更直观地观察两者间的关系。 
+如果有兴趣，可以使用安装包中已包括的 Python 绘图包 `matplotlib`，生成第二个特征值 (`X[:, 1]`) 和目标值 `Y` 的散点图，更直观地观察两者间的关系。
 
 ```{.python .input}
 import matplotlib.pyplot as plt
@@ -119,7 +119,7 @@ def square_loss(yhat, y):
 
 ## 优化
 
-虽然线性回归有显试解，但绝大部分模型并没有。所以我们这里通过随机梯度下降来求解。每一步，我们将模型参数沿着梯度的反方向走特定距离，这个距离一般叫**学习率（learning rate）** `lr`。（我们会之后一直使用这个函数，我们将其保存在[utils.py](../utils.py)。）
+虽然线性回归有显式解，但绝大部分模型并没有。所以我们这里通过随机梯度下降来求解。每一步，我们将模型参数沿着梯度的反方向走特定距离，这个距离一般叫**学习率（learning rate）** `lr`。（我们会之后一直使用这个函数，我们将其保存在[utils.py](../utils.py)。）
 
 ```{.python .input  n=10}
 def SGD(params, lr):
@@ -134,7 +134,7 @@ def SGD(params, lr):
 ```{.python .input}
 # 模型函数
 def real_fn(X):
-    return 2 * X[:, 0] - 3.4 * X[:, 1] + 4.2
+    return true_w[0] * X[:, 0] + true_w[1] * X[:, 1] + true_b
 # 绘制损失随训练次数降低的折线图，以及预测值和真实值的散点图
 def plot(losses, X, sample_size=100):
     xs = list(range(len(losses)))
@@ -194,7 +194,7 @@ true_w, w
 true_b, b
 ```
 
-## 结论
+## 小结
 
 我们现在看到，仅仅是使用NDArray和autograd就可以很容易实现的一个模型。在接下来的教程里，我们会在此基础上，介绍更多现代神经网络的知识，以及怎样使用少量的MXNet代码实现各种复杂的模型。
 
@@ -202,4 +202,7 @@ true_b, b
 
 尝试用不同的学习率查看误差下降速度（收敛率）
 
-**吐槽和讨论欢迎点**[这里](https://discuss.gluon.ai/t/topic/743)
+## 讨论
+
+欢迎扫码直达[本节内容讨论区](https://discuss.gluon.ai/t/topic/743)：
+

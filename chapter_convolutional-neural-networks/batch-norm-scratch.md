@@ -1,4 +1,4 @@
-# 批量归一化 --- 从0开始
+# 批量归一化——从零开始
 
 在[Kaggle实战](../chapter_supervised-learning/kaggle-gluon-kfold.md#预处理数据)我们输入数据做了归一化。在实际应用中，我们通常将输入数据的每个样本或者每个特征进行归一化，就是将均值变为0方差变为1，来使得数值更稳定。
 
@@ -8,7 +8,7 @@ scratch.md)和[逻辑回归](../chapter_supervised-learning/softmax-regression-
 scratch.md)很有效。因为输入层的输入值的大小变化不剧烈，那么输入也不会。但是，对于一个可能有很多层的深度学习模型来说，情况可能会比较复杂。
 
 举个例子，随着第一层和第二层的参数在训练时不断变化，第三层所使用的激活函数的输入值可能由于乘法效应而变得极大或极小，例如和第一层所使用的激活函数的输入值不在一个数量级上。这种在训练时可能出现的情况会造成模型训练的不稳定性。例如，给定一个学习率，某次参数迭代后，目标函数值会剧烈变化或甚至升高。数学的解释是，如果把目标函数
-$f$ 根据参数 $\mathbf{w}$ 迭代（如 $f(\mathbf{w} - \eta \nabla f(\mathbf{w}))$
+$f$ 根据参数 $\boldsymbol{w}$ 迭代（如 $f(\boldsymbol{w} - \eta \nabla f(\boldsymbol{w}))$
 ）进行泰勒展开，有关学习率 $\eta$ 的高阶项的系数可能由于数量级的原因（通常由于层数多）而不容忽略。然而常用的低阶优化算法（如梯度下降）对于不断降低目标函
 数的有效性通常基于一个基本假设：在以上泰勒展开中把有关学习率的高阶项通通忽略不计。
 
@@ -142,34 +142,34 @@ ctx
 ```{.python .input  n=9}
 weight_scale = .01
 
-# output channels = 20, kernel = (5,5)
+# 输出通道 = 20, 卷积核 = (5,5)
 c1 = 20
 W1 = nd.random.normal(shape=(c1,1,5,5), scale=weight_scale, ctx=ctx)
 b1 = nd.zeros(c1, ctx=ctx)
 
-# batch norm 1
+# 第1层批量归一化
 gamma1 = nd.random.normal(shape=c1, scale=weight_scale, ctx=ctx)
 beta1 = nd.random.normal(shape=c1, scale=weight_scale, ctx=ctx)
 moving_mean1 = nd.zeros(c1, ctx=ctx)
 moving_variance1 = nd.zeros(c1, ctx=ctx)
 
-# output channels = 50, kernel = (3,3)
+# 输出通道 = 50, 卷积核 = (3,3)
 c2 = 50
 W2 = nd.random_normal(shape=(c2,c1,3,3), scale=weight_scale, ctx=ctx)
 b2 = nd.zeros(c2, ctx=ctx)
 
-# batch norm 2
+# 第2层批量归一化
 gamma2 = nd.random.normal(shape=c2, scale=weight_scale, ctx=ctx)
 beta2 = nd.random.normal(shape=c2, scale=weight_scale, ctx=ctx)
 moving_mean2 = nd.zeros(c2, ctx=ctx)
 moving_variance2 = nd.zeros(c2, ctx=ctx)
 
-# output dim = 128
+# 输出维度 = 128
 o3 = 128
 W3 = nd.random.normal(shape=(1250, o3), scale=weight_scale, ctx=ctx)
 b3 = nd.zeros(o3, ctx=ctx)
 
-# output dim = 10
+# 输出维度 = 10
 W4 = nd.random_normal(shape=(W3.shape[1], 10), scale=weight_scale, ctx=ctx)
 b4 = nd.zeros(W4.shape[1], ctx=ctx)
 

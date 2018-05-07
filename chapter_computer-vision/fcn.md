@@ -1,4 +1,4 @@
-# 语义分割：FCN
+# 语义分割
 
 我们已经学习了如何识别图片里面的主要物体，和找出里面物体的边框。语义分割则在之上更进一步，它对每个像素预测它是否只是背景，还是属于哪个我们感兴趣的物体。
 
@@ -360,7 +360,7 @@ def predict(im):
 
 def label2image(pred):
     x = pred.astype('int32').asnumpy()
-    cm = np.array(colormap).astype('uint8')
+    cm = nd.array(colormap).astype('uint8')
     return nd.array(cm[x,:])
 ```
 
@@ -379,7 +379,7 @@ for i in range(n):
 utils.show_images(imgs, nrows=n, ncols=3, figsize=(6,10))
 ```
 
-## 总结
+## 小结
 
 通过使用卷积转置层，我们可以得到更大分辨率的输出。
 

@@ -2,7 +2,7 @@ name: gluon_zh_docs
 dependencies:
 - python
 - jupyter
-- sphinx
+- sphinx=1.6.3
 - sphinx_rtd_theme
 - matplotlib
 - pandas
@@ -10,7 +10,8 @@ dependencies:
 - pip:
   - pyopenssl>= 17.3.0
   - nbsphinx
+  - spacy
   - recommonmark
   - https://github.com/mli/notedown/tarball/master
-  - mxnet-cu80>=0.11.1b20171106
+  - mxnet-cu80>=1.2.0b20180427
   - jieba

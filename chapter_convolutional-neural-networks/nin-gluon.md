@@ -1,4 +1,4 @@
-# 网络中的网络
+# 网络中的网络：NiN
 
 Alexnet之后一个重要的工作是[Network in Network（NiN）](https://arxiv.org/abs/1312.4400)，其提出的两个想法影响了后面的网络设计。
 
@@ -63,7 +63,9 @@ with net.name_scope():
         mlpconv(10, 3, 1, max_pooling=False),
         # 输入为 batch_size x 10 x 5 x 5, 通过AvgPool2D转成
         # batch_size x 10 x 1 x 1。
-        nn.AvgPool2D(pool_size=5),
+        # 我们可以使用 nn.AvgPool2D(pool_size=5), 
+        # 但更方便是使用全局池化，可以避免估算pool_size大小
+        nn.GlobalAvgPool2D(),
         # 转成 batch_size x 10
         nn.Flatten()
     )

@@ -1,4 +1,4 @@
-# 批量归一化 --- 使用Gluon
+# 批量归一化——使用Gluon
 
 本章介绍如何使用``Gluon``在训练和测试深度学习模型中使用批量归一化。
 
@@ -42,7 +42,6 @@ import utils
 from mxnet import autograd 
 from mxnet import gluon
 from mxnet import nd
-# from mxnet import init
 
 ctx = utils.try_gpu()
 net.initialize(ctx=ctx)
